@@ -228,7 +228,7 @@ public class XAxisRenderer extends AxisRenderer {
                     }
                 }
 
-                //if (_indices != null && _indices.length > 0 && _indices[0].getXPx() == x) {
+                if (_indices != null && _indices.length > 0 && _indices[0].getX() == x) {
                     RectF circleRectF = new RectF();
                     circleRectF.left = x - 35;
                     circleRectF.right = x + 35;
@@ -241,7 +241,7 @@ public class XAxisRenderer extends AxisRenderer {
                     mShadowPaint.setColor(0xFFE92263);
 
                     c.drawRoundRect(circleRectF, 50, 50, mShadowPaint);
-                //}
+                }
 
                 drawLabel(c, label, x, pos, anchor, labelRotationAngleDegrees);
             }
