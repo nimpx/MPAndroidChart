@@ -101,6 +101,11 @@ public class XAxisRenderer extends AxisRenderer {
         FSize.recycleInstance(labelSize);
     }
 
+    protected Highlight[] _indices;
+    public void setHilightIndices(Highlight[] indices){
+        this._indices = indices;
+    }
+
     @Override
     public void renderAxisLabels(Canvas c) {
 
@@ -220,6 +225,21 @@ public class XAxisRenderer extends AxisRenderer {
                         float width = Utils.calcTextWidth(mAxisLabelPaint, label);
                         x += width / 2;
                     }
+                }
+
+                if (_indices != null && _indices.length > 0 && _indices[0].getXPx() == x) {
+                    RectF circleRectF = new RectF();
+                    circleRectF.left = x - 35;
+                    circleRectF.right = x + 35;
+                    circleRectF.top = pos + 45;
+                    circleRectF.bottom = pos - 25;
+
+                    Paint mShadowPaint;
+                    mShadowPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
+                    mShadowPaint.setStyle(Paint.Style.FILL);
+                    mShadowPaint.setColor(0xFFE92263);
+
+                    c.drawRoundRect(circleRectF, 50, 50, mShadowPaint);
                 }
 
                 drawLabel(c, label, x, pos, anchor, labelRotationAngleDegrees);
