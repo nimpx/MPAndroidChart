@@ -230,9 +230,9 @@ public class XAxisRenderer extends AxisRenderer {
 
                 if (_indices != null && _indices.length > 0 && _indices[0].getX() == i / 2) {
                     RectF circleRectF = new RectF();
-                    circleRectF.left = x - 35;
-                    circleRectF.right = x + 35;
-                    circleRectF.top = pos + 45;
+                    circleRectF.left = x - 55;
+                    circleRectF.right = x + 55;
+                    circleRectF.top = pos + 65;
                     circleRectF.bottom = pos - 25;
 
                     Paint mShadowPaint;
