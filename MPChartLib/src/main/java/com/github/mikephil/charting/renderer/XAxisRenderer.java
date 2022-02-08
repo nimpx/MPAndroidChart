@@ -233,7 +233,7 @@ public class XAxisRenderer extends AxisRenderer {
                     circleRectF.left = x - 55;
                     circleRectF.right = x + 55;
                     circleRectF.top = pos + 70;
-                    circleRectF.bottom = pos - 45;
+                    circleRectF.bottom = pos - 40;
 
                     Paint mShadowPaint;
                     mShadowPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
