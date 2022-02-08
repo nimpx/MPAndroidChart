@@ -240,7 +240,7 @@ public class XAxisRenderer extends AxisRenderer {
                     mShadowPaint.setStyle(Paint.Style.FILL);
                     mShadowPaint.setColor(0xFFE92263);
 
-                    c.drawRoundRect(circleRectF, 50, 50, mShadowPaint);
+                    c.drawRoundRect(circleRectF, 100, 100, mShadowPaint);
                 }
 
                 drawLabel(c, label, x, pos, anchor, labelRotationAngleDegrees);
