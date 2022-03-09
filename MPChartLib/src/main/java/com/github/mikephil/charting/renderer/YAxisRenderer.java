@@ -11,6 +11,7 @@ import com.github.mikephil.charting.components.LimitLine;
 import com.github.mikephil.charting.components.YAxis;
 import com.github.mikephil.charting.components.YAxis.AxisDependency;
 import com.github.mikephil.charting.components.YAxis.YAxisLabelPosition;
+import com.github.mikephil.charting.highlight.Highlight;
 import com.github.mikephil.charting.utils.MPPointD;
 import com.github.mikephil.charting.utils.Transformer;
 import com.github.mikephil.charting.utils.Utils;
@@ -86,6 +87,42 @@ public class YAxisRenderer extends AxisRenderer {
         }
 
         drawYLabels(c, xPos, positions, yoffset);
+    }
+    protected Highlight[] _indices;
+    public void setHilightIndices(Highlight[] indices){
+        this._indices = indices;
+    }
+
+    public void renderHighlightLine(Canvas c) {
+        if (_indices == null || _indices.length == 0) return;
+
+        float[] pts = mRenderLimitLinesBuffer;
+        pts[0] = 0;
+        pts[1] = _indices[0].getY();
+        Path limitLinePath = mRenderLimitLines;
+        limitLinePath.reset();
+
+
+
+        int clipRestoreCount = c.save();
+        mLimitLineClippingRect.set(mViewPortHandler.getContentRect());
+        mLimitLineClippingRect.inset(0.f, -2);
+        c.clipRect(mLimitLineClippingRect);
+
+        mLimitLinePaint.setStyle(Paint.Style.STROKE);
+        mLimitLinePaint.setColor(Color.parseColor("#394E4B"));
+        mLimitLinePaint.setStrokeWidth(2);
+
+
+        mTrans.pointValuesToPixel(pts);
+
+        limitLinePath.moveTo(mViewPortHandler.contentLeft(), pts[1]);
+        limitLinePath.lineTo(mViewPortHandler.contentRight(), pts[1]);
+
+        c.drawPath(limitLinePath, mLimitLinePaint);
+        limitLinePath.reset();
+
+        c.restoreToCount(clipRestoreCount);
     }
 
     @Override
