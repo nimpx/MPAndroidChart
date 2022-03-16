@@ -110,7 +110,7 @@ public class YAxisRenderer extends AxisRenderer {
         c.clipRect(mLimitLineClippingRect);
 
         mLimitLinePaint.setStyle(Paint.Style.STROKE);
-        mLimitLinePaint.setColor(Color.parseColor("#394E4B"));
+        mLimitLinePaint.setColor(Color.parseColor("#318b7e"));
         mLimitLinePaint.setStrokeWidth(2);
 
 
