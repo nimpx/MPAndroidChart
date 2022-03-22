@@ -185,7 +185,7 @@ public class BarChartRenderer extends BarLineScatterCandleBubbleRenderer {
             }
             else {
                 c.drawRoundRect(buffer.buffer[j], buffer.buffer[j + 1], buffer.buffer[j + 2],
-                        buffer.buffer[j + 3], 50, 50, mRenderPaint);
+                        buffer.buffer[j + 3] + 50, 50, 50, mRenderPaint);
                  c.drawRect(buffer.buffer[j], buffer.buffer[j + 1] + 50, buffer.buffer[j + 2],
                          buffer.buffer[j + 3], mRenderPaint);
             }
@@ -193,7 +193,7 @@ public class BarChartRenderer extends BarLineScatterCandleBubbleRenderer {
             if (drawBorder) {
                 
                 c.drawRoundRect(buffer.buffer[j], buffer.buffer[j + 1], buffer.buffer[j + 2],
-                        buffer.buffer[j + 3], 50, 50, mBarBorderPaint);
+                        buffer.buffer[j + 3] + 50, 50, 50, mBarBorderPaint);
                 c.drawRect(buffer.buffer[j], buffer.buffer[j + 1] + 50, buffer.buffer[j + 2],
                          buffer.buffer[j + 3], mBarBorderPaint);
             }
